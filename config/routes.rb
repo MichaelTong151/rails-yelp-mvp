@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :restaurants
-  get "restaurants/new"
-  get "restaurants/show"
-  get "restaurants/id"
-  post "restaurant/create"
-  root "restaurants#index"
+
+  get 'restaurants', to: 'restaurants#index'
+  get 'restaurant_reviews', to: 'restaurant_reviews#index'
 
   resources :restaurant do
     resources :reviews, only: [ :new, :create ]
