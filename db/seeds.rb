@@ -8,24 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-require 'faker'
-
-puts 'Cleaning database...'
-Restaurant.destroy_all
-
-puts "Creating 5 records..."
-
-5.times do
-  restaurant = Restaurant.create(
-    name: Faker::Company.name,
-    address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
-    category: %w(chinese italian japanese french belgian).sample,
-    )
-  5.times do
-    restaurant.reviews.create(
-      content: Faker::RickAndMorty.quote,
-      rating: (0..5).to_a.sample
-      )
-  end
-end
+Restaurant.destroy.all
+Restaurant.create(name: "Bopomofo", address: "Los Angeles, CA", category: Taiwanese/American)
+Restaurant.create(name: "Craw Daddy", address: "San Jose, CA", category: Mexican)
+Restaurant.create(name: "Left Wing", address: "San Francisco, CA", category: Korean/American )
+Restaurant.create(name: "Zipang Ramen Bar", address: "Hamburg, DE", category: Japanese)
+Restaurant.create(name: "Asia Vu", address: "Stade, DE", category: Vietnamese)
+Restaurant.create(name: "Little Four Seasons", address: "London UK", category: Chinese)
+Restaurant.create(name: "Momofuku Ramen", address: "Las Vegas, NV", category: Japanese/American )
